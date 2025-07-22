@@ -387,7 +387,7 @@ module "aihub" {
 resource "azapi_resource" "aiservices_connection" {
   name      = "sc${random_string.name.id}"
   parent_id = module.aihub.resource_id
-  type      = "Microsoft.MachineLearningServices/workspaces/connections@2025-01-01-preview"
+  type      = "Microsoft.MachineLearningServices/workspaces/connections@2025-06-01"
   body = {
     properties = {
       category      = "AIServices"
