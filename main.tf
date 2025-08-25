@@ -83,6 +83,7 @@ resource "azapi_resource" "hub" {
       storageAccount           = var.storage_account.resource_id
       containerRegistry        = try(var.container_registry.resource_id, null)
       description              = var.workspace_description
+      discoveryUrl             = var.discovery_url == null ? "https://${var.location}.api.azureml.ms/discovery" : var.discovery_url
       friendlyName             = coalesce(var.workspace_friendly_name, (local.enable_public_network_access ? "Public Hub" : "Private Hub"))
       systemDatastoresAuthMode = var.storage_access_type
       managedNetwork = {
@@ -149,6 +150,7 @@ resource "azapi_resource" "project" {
       description   = var.workspace_description
       friendlyName  = coalesce(var.workspace_friendly_name, "AI Project")
       hubResourceId = var.azure_ai_hub.resource_id
+      discoveryUrl  = var.discovery_url == null ? "https://${var.location}.api.azureml.ms/discovery" : var.discovery_url
     }
     kind = var.kind
   }

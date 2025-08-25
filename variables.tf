@@ -433,6 +433,12 @@ variable "workspace_friendly_name" {
   description = "The friendly name for this workspace. This value in mutable."
 }
 
+variable "discovery_url" {
+  type        = string
+  description = "The URL for the discovery service."
+  default     = null
+}
+
 variable "workspace_managed_network" {
   type = object({
     isolation_mode = string
