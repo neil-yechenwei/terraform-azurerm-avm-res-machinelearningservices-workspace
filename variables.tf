@@ -435,7 +435,7 @@ variable "workspace_friendly_name" {
 
 variable "discovery_url" {
   type        = string
-  description = "The URL for the discovery service."
+  description = "The Url for the discovery service to identify regional endpoints for machine learning experimentation services."
   default     = null
 }
 
